@@ -57,7 +57,7 @@ class DogsController < ApplicationController
           params[:dog][:image].each { |image| @dog.images.attach(image) }
         end
 
-        format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to @dog, notice: 'Pupper was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
+      format.html { redirect_to dogs_url, notice: 'Pupper was successfully deleted.' }
       format.json { head :no_content }
     end
   end

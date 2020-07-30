@@ -4,11 +4,12 @@ class LikesController < ApplicationController
   # POST /likes
   # POST /likes.json
   def create
-    current_user.likes.new(like_params)
+    binding.pry
+    @like = current_user.likes.new(like_params)
 
     respond_to do |format|
       if @like.save
-        format.html { redirect_to request.referrer, notice: 'Like was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'You have liked this pupper!' }
         format.json { render :show, status: :created, location: @like }
       else
         format.html { render :new }
@@ -20,9 +21,10 @@ class LikesController < ApplicationController
   # DELETE /likes/1
   # DELETE /likes/1.json
   def destroy
+    # binding.pry
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Like was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Pupper has been unliked :(' }
       format.json { head :no_content }
     end
   end
