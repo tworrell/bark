@@ -4,8 +4,9 @@ class LikesController < ApplicationController
   # POST /likes
   # POST /likes.json
   def create
-    binding.pry
-    @like = current_user.likes.new(like_params)
+    # binding.pry
+    
+    current_user.likes.new(like_params)
 
     respond_to do |format|
       if @like.save
